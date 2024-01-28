@@ -1,0 +1,46 @@
+.produit{
+    width: 60%;
+    height: 55vh;
+    /* background-color: gray; */
+}
+.produit table thead tr td{
+    font-size: 0.8em;
+    background-color: rgb(168, 164, 164);
+    padding: 1% !important;
+}
+.produit table tbody tr td{
+    font-size: 0.7em;
+    padding-top: 1.5%;
+    font-weight: normal;
+}
+.produit table button{
+    font-size: 0.9em;
+}
+.pannier{
+    height: auto;
+    width: 40%;
+    box-shadow: 0 0 7px gray;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+}
+.prods{
+    height: 45vh;
+    overflow-y: scroll;
+}
+.prod{
+    height: 30vh;
+    overflow-y: scroll;
+}
+.pannier table thead tr td{
+    font-size: 0.8em;
+    padding: 2% !important;
+    background-color: rgb(168, 164, 164);
+}
+.pannier table tbody tr td{
+    font-size: 0.7em;
+    font-weight: normal;
+    padding-top: 1.5%;
+}
+.pannier table tbody tr td input{
+    width: 1cm;
+}

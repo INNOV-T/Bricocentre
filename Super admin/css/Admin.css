@@ -1,0 +1,91 @@
+.maping{
+    height: 100vh;
+    float: left;
+    width: 15%;
+    background-color: rgb(255, 255, 255);
+}
+.menu a:hover{
+    background-color: gray;
+    color: white;
+}
+body{
+    background-color: rgb(216, 216, 216);
+}
+.contenu{
+    height: 100vh;
+    width: 85%;
+    float: right;
+}
+.header{
+    height: 10vh;
+    width: 100%;
+    background-color: white;
+}
+.logo{
+    float: left;
+}
+.logo h4{
+    font-weight: bold;
+}
+.profil{
+    float: right;
+}
+.suggestion{
+    height: 8vh;
+    width: 100%;
+    background-color: white;
+}
+.profil button{
+    font-size: 0.8em;
+    width: 4cm;
+    color: white;
+    margin-top: -2vh;
+    margin-left: 2% !important;
+}
+.stats{
+    height: auto;
+    width: 100%;
+    /* background-color: white; */
+}
+.one{
+    height: 70vh;
+    width: 30%;
+    background-color: white;
+}
+.two{
+    height: 70vh;
+    width: 40%;
+    background-color: rgb(203, 206, 209);
+}
+.cli{
+    height: 20vh;
+    width: 50%;
+    background-color: rgb(221, 225, 229);
+}
+.chart{
+    height: auto;
+    box-shadow: 0 0 5px gray;
+    width: 100%;
+    background-color: white;
+}
+.commande{
+    height: 30vh !important;
+}
+.fournisseur{
+    height: 55vh;
+    overflow-y: scroll;
+}
+.fournisseur table thead tr td {
+    font-weight: bold;
+    font-size: 0.8em;
+  }
+  .fournisseur table tbody tr td {
+    font-size: 0.7em;
+    padding: 3%;
+  }
+
+  .footer{
+    height: 12vh;
+    background-color: white;
+    width: 100%;
+  }

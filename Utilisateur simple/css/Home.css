@@ -1,0 +1,49 @@
+.statistique {
+  height: auto;
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+}
+.one {
+  height: 20vh;
+  text-align: center;
+  width: 25%;
+  background: rgb(253, 253, 253);
+  background: linear-gradient(0deg, rgb(254, 255, 255) 0%, rgba(255, 255, 255, 0.443) 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+  margin: 2%;
+}
+.one h3 {
+  font-weight: bold;
+}
+.historique {
+  height: 47vh;
+  border-radius: 5px;
+  width: 100%;
+  background-color: white;
+}
+.client {
+  height: 47vh;
+  overflow-y: scroll;
+  margin: 1%;
+  width: 50%;
+  background-color: white;
+}
+.produit {
+  height: 47vh;
+  overflow-y: scroll;
+  width: 49%;
+  margin: 1%;
+  background-color: white;
+}
+.historique table {
+  font-size: 0.7em;
+}
+.historique table thead tr td {
+  font-weight: bold;
+  padding: 2%;
+}
+.historique table tbody tr td {
+  padding: 3%;
+}

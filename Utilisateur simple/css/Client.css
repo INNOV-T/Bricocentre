@@ -1,0 +1,76 @@
+.clients{
+    height: 75vh;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0 5px gray;
+}
+.bouton button{
+    font-size: 0.8em;
+}
+.head{
+    height: 10vh;
+    width: 100ù;
+}
+.head form{
+    width: auto;
+    float: left;
+}
+.head .bouton{
+    width: auto;
+    float: right;
+}
+.list{
+    height: auto;
+}
+.listes{
+    overflow-y: scroll;
+    height: 50vh;
+}
+.list table tbody tr td{
+    font-size: 0.8em;
+    padding: 1%;
+    font-weight: normal;
+}
+.list table thead tr td{
+    color: white;
+    padding: 1%;
+
+}
+.list table thead{
+    position: sticky;
+    top: 0;
+}
+.modale{
+    height: 90vh;
+    width: 82%;
+    z-index: 11 !important;
+    background-color: rgba(0, 0, 0, 0.405);
+    position: absolute;
+    animation: show linear 1s;
+    display: none;
+}
+.ajout-cli{
+    height: auto;
+    border-radius: 15px;
+    width: 70%;
+    margin-top: 5vh;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: rgb(227, 224, 224);
+}
+
+.entreprise{
+    box-shadow: 0 0 5px gray;
+    border-bottom-left-radius: 7.5px;
+    border-bottom-right-radius: 7.5px;
+}
+.formulaire form input{
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 3px gray;
+}
+.formulaire form input::placeholder{
+    font-size: 0.8em;
+    font-weight: bold;
+}

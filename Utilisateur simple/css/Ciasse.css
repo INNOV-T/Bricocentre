@@ -1,0 +1,16 @@
+.prods table thead tr td{
+    font-size: 0.8em;
+    padding: 1% !important;
+    background-color: rgb(168, 164, 164);
+}
+.prods table button{
+    font-size: 0.8em;
+}
+.prods{
+    height: 60vh;
+    overflow-y: scroll;
+}
+.prods table thead{
+    position: sticky;
+    top: 0;
+}
