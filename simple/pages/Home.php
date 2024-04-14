@@ -1,3 +1,49 @@
+<?php
+
+require '../../Connexion.php';
+
+// AFFICHER CLIENT
+$requeteC = $connection->query('SELECT NomComplet,adresse,`typeCompte` FROM client ORDER BY idClient DESC');
+$resultatC = $requeteC->fetchAll(PDO::FETCH_ASSOC);
+
+// AFFICHER PRODUITS
+$requeteP = $connection->query('SELECT NomProduit,Designation,`references`,PrixU FROM produit ORDER BY id DESC');
+$resultatP = $requeteP->fetchAll(PDO::FETCH_ASSOC);
+
+// COMPTE CLIENT
+$requeteCc = $connection->query('SELECT COUNT(idClient) FROM client where typeCompte ="Entreprise"');
+$resultatCc = $requeteCc->fetchAll(PDO::FETCH_ASSOC);
+
+$requeteS = $connection->query('SELECT COUNT(idClient) FROM client where typeCompte ="Client simple"');
+$resultatS = $requeteS->fetchAll(PDO::FETCH_ASSOC);
+
+$clients = $resultatCc[0]["COUNT(idClient)"];
+$client2 = $resultatS[0]["COUNT(idClient)"];
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,18 +79,18 @@
             <div class="center mb-4" style="width: 100%">
               <img src="../../images/logo.jpg" alt="" width="100" />
             </div>
-            <a class="btn btn-warning" href="Client.html">
+            <a class="btn btn-light" href="Client.php">
               <i class="fa fa-user"></i> Gérer les clients
             </a>
-            <a class="btn btn-warning" href="Produit.html">
+            <a class="btn btn-light" href="Produit.php">
               <i class="fa fa-list"></i> Gérer les produits
             </a>
-            <a class="btn btn-warning" href="Commande.html">
+            <a class="btn btn-light" href="Commande.html">
               <i class="fa fa-check-circle"></i> Gérer les commandes
             </a>
 
-            <a class="btn btn-info" href="Login.html">
-              <i class="fa fa-forward"></i> Deconnexion
+            <a class="btn btn-warning" href="Login.html">
+              <i class="fas fa-sign-out-alt"></i> Deconnexion
             </a>
           </div>
         </aside>
@@ -59,102 +105,77 @@
             <div class="statistique center">
               <div class="one p-4">
                 <h3 class="mt-3 text-success">
-                  <i class="fa fa-bar-chart"></i> 12200
+                  <i class="fa fa-bar-chart"></i> <?=$clients?>
                 </h3>
-                <p>Clients pontentiels</p>
+                <p>Clients (Entreprise)</p>
               </div>
               <div class="one p-4">
                 <h3 class="mt-3 text-primary">
-                  <i class="fa fa-bar-chart"></i> 12200
+                  <i class="fa fa-bar-chart"></i> <?=$client2?>
                 </h3>
-                <p>Produits en stocks</p>
+                <p>Clients (Simple)</p>
               </div>
               <div class="one p-4">
                 <h3 class="mt-3"><i class="fa fa-bar-chart"></i> 12200</h3>
                 <p>Commande passé</p>
               </div>
-              <div class="one p-4">
+              <!-- <div class="one p-4">
                 <h3 class="mt-3 text-success">
                   <i class="fa fa-dollar"></i> 12200
                 </h3>
                 <p>Recette journaliére</p>
-              </div>
+              </div> -->
             </div>
             <div class="historique mt-3 p-2 center">
               <div class="client p-3">
                 <p>
                   <i class="fa fa-calendar-check"></i> Historique des clients
-                  pontentiels
                 </p>
                 <table
                   class="table table-hover table-responsive table-striped table-sm"
                 >
                   <thead class="bg-secondary text-light">
                     <tr>
-                      <td>Numero matricule</td>
-                      <td>Nom du client</td>
-                      <td>Type</td>
-                      <td>NIF / STAT</td>
+                        <td>Nom du client</td>
+                        <td>Adresse</td>
+                        <td>Type</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>individuel</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>individuel</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>individuel</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    
+                          <?php foreach ($resultatC as $keys) : ?>
+                              <tr>
+                                  <?php foreach ($keys as $key) : ?>
+                                      <td><?= $key ?></td>
+                                  <?php endforeach ?>
+                              </tr>
+                          <?php endforeach ?>
                   </tbody>
                 </table>
               </div>
               <div class="produit p-3">
                 <p>
                   <i class="fa fa-calendar-check"></i> Nos produits chez
-                  <b class="text-warning">Bricocentre</b>
+                  <b class="text-warning">Bricocentre</b> Fianarantsoa
                 </p>
                 <table
                   class="table table-hover table-responsive table-striped table-sm"
                 >
                   <thead class="bg-secondary text-light">
                     <tr>
-                      <td>Numero matricule</td>
-                      <td>Nom du client</td>
-                      <td>Type</td>
-                      <td>NIF / STAT</td>
+                              <td>Nom du produit</td>
+                              <td>Designation</td>
+                              <td>Reference</td>
+                              <td>Prix unitaire HT <b class="text-warning">(Ar)</b></td>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>individuel</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>individuel</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>individuel</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
+                          <?php foreach ($resultatP as $keys) : ?>
+                              <tr>
+                                  <?php foreach ($keys as $key) : ?>
+                                      <td><?= $key ?></td>
+                                  <?php endforeach ?>
+                              </tr>
+                          <?php endforeach ?>
                   </tbody>
                 </table>
               </div>

@@ -1,3 +1,33 @@
+<?php
+
+require('../../Connexion.php');
+// AFFICHER FOURNISSEUR
+$requeteP = $connection->query('SELECT NomFournisseur,adresse FROM fournisseur ORDER BY idFournisseur DESC');
+$resultatP = $requeteP->fetchAll(PDO::FETCH_ASSOC);
+
+
+// COMPTE CLIENT
+$requeteC = $connection->query('SELECT COUNT(id) FROM client');
+$resultatC = $requeteC->fetchAll(PDO::FETCH_ASSOC);
+
+$requetePP = $connection->query('SELECT COUNT(id) FROM produit');
+$resultatPP = $requetePP->fetchAll(PDO::FETCH_ASSOC);
+
+$clients = $resultatC[0]["COUNT(id)"];
+$produits = $resultatPP[0]["COUNT(id)"];
+?>
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +52,12 @@
                 <img src="../../images/logo.jpg" alt="" width="80">
             </div>
             <div class="menu mt-5">
-                <a href="" class="btn btn-light"><i class="fa fa-users"></i> Clients</a>
-                <a href="" class="btn btn-light"><i class="fa fa-user-circle"></i> Fournisseurs</a>
-                <a href="" class="btn btn-light"><i class="fa-solid fa-sitemap"></i> Produits</a>
-                <a href="" class="btn btn-light"><i class="fa-solid fa-square-poll-horizontal"></i> Stocks</a>
-                <a href="" class="btn btn-light"><i class="fa-solid fa-scale-balanced"></i> Comptablité</a>
+                <a href="Clients.php" class="btn btn-light"><i class="fa fa-users"></i> Clients</a>
+                <a href="Fournisseur.php" class="btn btn-light"><i class="fa fa-user-circle"></i> Fournisseurs</a>
+                <a href="Produits.php" class="btn btn-light"><i class="fa-solid fa-sitemap"></i> Produits</a>
+                <a href="Stocks.html" class="btn btn-light"><i class="fa-solid fa-square-poll-horizontal"></i> Stocks</a>
+                <a href="Comptable.html" class="btn btn-light"><i class="fa-solid fa-scale-balanced"></i> Comptablité</a>
+                <a href="" class="btn btn-light"><i class="fa-solid fa-clock"></i> Demande en attente</a>
             </div>
         </div>
     </aside>
@@ -48,13 +79,13 @@
                     <div class="center">
                         <div class="cli m-2 center">
                             <div>
-                                <h2 style="font-weight: bold;">320</h2>
+                                <h2 style="font-weight: bold;"><?=$clients?></h2>
                                 <p>Clients</p>
                             </div>
                         </div>
                         <div class="cli m-2 center">
                             <div>
-                                <h2 style="font-weight: bold;">1500</h2>
+                                <h2 style="font-weight: bold;"><?=$produits?></h2>
                                 <p>Produits</p>
                             </div>
                         </div>
@@ -95,27 +126,18 @@
                 >
                   <thead class="bg-secondary text-light">
                     <tr>
-                      <td>Numero</td>
                       <td>Nom du founisseur</td>
-                      <td>NIF / STAT</td>
+                      <td>Adresse</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
-                    <tr>
-                      <td>MC004</td>
-                      <td>Marius Randrianarison</td>
-                      <td>34532434364 / 536B6Y343</td>
-                    </tr>
+                  <?php foreach ($resultatP as $keys) : ?>
+                              <tr>
+                                  <?php foreach ($keys as $key) : ?>
+                                      <td><?= $key ?></td>
+                                  <?php endforeach ?>
+                              </tr>
+                            <?php endforeach ?>
                     
                   </tbody>
                 </table>
@@ -139,12 +161,12 @@
                     </div>
                     <div class="chart commande mt-3 p-3">
                         <p class="alert alert-light"><i class="fa fa-calculator text-warning"></i> Consultation de recette</p>
-                        <h4 class="bg-secondary text-light p-3">Journalier : <br> <br><b class="text-warning text-center">10 000 000 Ar</b></h4>
+                        <h4 class="bg-secondary text-light p-3">Journalier :  <br> <br><b class="text-warning text-center">10 000 000 Ar</b></h4>
                     </div>
                 </div>
             </div>
             <div class="footer p-3">
-                <a href="" class="btn btn-secondary"></a>
+                <a href="" class="btn btn-secondary mt-2"><i class="fa fa-refresh"></i> Reinitialiser la recette journaliere</a>
             </div>
         </div>
     </section>

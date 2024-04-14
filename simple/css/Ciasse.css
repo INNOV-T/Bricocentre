@@ -6,8 +6,11 @@
 .prods table button{
     font-size: 0.8em;
 }
+.prods table tbody tr td a{
+    font-size: 0.7em !important;
+}
 .prods{
-    height: 60vh;
+    height: 50vh;
     overflow-y: scroll;
 }
 .prods table thead{

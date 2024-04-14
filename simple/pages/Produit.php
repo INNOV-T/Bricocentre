@@ -1,3 +1,34 @@
+
+<?php
+
+require('../../Connexion.php');
+// AFFICHER PRODUITS
+$requeteP = $connection->query('SELECT NomProduit,Designation,`references`,PrixU FROM produit ORDER BY id DESC');
+$resultatP = $requeteP->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,20 +76,20 @@
             <div class="center mb-4" style="width: 100%">
               <img src="../../images/logo.jpg" alt="" width="100" />
             </div>
-            <a class="btn btn-warning" href="Client.html">
+            <a class="btn btn-light" href="Client.php">
               <i class="fa fa-user"></i> Gérer les clients
             </a>
-            <a class="btn btn-warning active">
+            <a class="btn btn-light active">
               <i class="fa fa-list"></i> Gérer les produits
             </a>
-            <a class="btn btn-warning" href="Commande.html">
+            <a class="btn btn-light" href="Commande.html">
               <i class="fa fa-check-circle"></i> Gérer les commandes
             </a>
             <!-- <a class="btn btn-warning" href="#">
               <i class="fa fa-bar-chart"></i> Gérer les stocks
             </a> -->
-            <a class="btn btn-info" href="Login.html">
-              <i class="fa fa-forward"></i> Deconnexion
+            <a class="btn btn-warning" href="Login.php">
+              <i class="fas fa-sign-out-alt"></i> Deconnexion
             </a>
           </div>
         </aside>
@@ -90,23 +121,17 @@
                               <td>Nom du produit</td>
                               <td>Designation</td>
                               <td>Reference</td>
-                              <td>Prix unitaire HT</td>
+                              <td>Prix unitaire HT <b class="text-warning">(Ar)</b></td>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>Carreaux 20</td>
-                              <td>Carreaux MT 2500</td>
-                              <td>34532434364 / 536B6Y343</td>
-                              <td>200 000 Ar</td>
-                            </tr>
-                            <tr>
-                              <td>Carreaux 20</td>
-                              <td>Carreaux MT 2500</td>
-                              <td>34532434364 / 536B6Y343</td>
-                              <td>200 000 Ar</td>
-                            </tr>
-                            
+                          <?php foreach ($resultatP as $keys) : ?>
+                              <tr>
+                                  <?php foreach ($keys as $key) : ?>
+                                      <td><?= $key ?></td>
+                                  <?php endforeach ?>
+                              </tr>
+                            <?php endforeach ?>
                           </tbody>
                         </table>
                       </div>
